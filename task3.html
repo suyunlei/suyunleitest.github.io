@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+    <meta name='author' content="苏云雷">
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='black'>
+    <meta name='format-detection' content='telephone=no'>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <title>TASK3</title>
+    <style>
+        html,body{
+          width: 100%;
+          height: 100%
+        }
+        .out{
+            width: 650px;
+            height: 650px;
+            border: 5px;
+            border-color: aqua;
+            border-style: solid;
+            position: relative;
+            border-radius: 20px;
+        }
+        #container{
+            width: 100%;
+            height: 580px;
+            border-radius: 20px;
+        }
+        .getpos,.getback{
+            width: 318px;
+            height: 60px;
+            position: relative;
+            background-color: cornflowerblue;
+            border-style: solid;
+            border-radius: 20px;
+            cursor: pointer;
+            color: whitesmoke;
+            font-size: xx-large;
+            margin: 0px;
+            padding: 0px; 
+        }
+    </style>
+    <script src="jquery-3.4.1.js"></script>
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=bd6f643c911093e3abe7f31e7215893f"></script>
+    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <!-- 获取用户经纬度 -->
+    <script>
+        var Lat;
+        var Lng;
+        mapObj = new AMap.Map('iCenter');
+        mapObj.plugin('AMap.Geolocation', function () {
+        geolocation = new AMap.Geolocation({
+        enableHighAccuracy: true,//是否使用高精度定位，默认:true
+        timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+        maximumAge: 0,           //定位结果缓存0毫秒，默认：0
+        convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+        showButton: true,        //显示定位按钮，默认：true
+        buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
+        buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+        showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
+        showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
+        panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
+        zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+        });
+        mapObj.addControl(geolocation);
+        geolocation.getCurrentPosition();
+        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+        });
+         //解析定位结果
+         function onComplete(data) {
+            console.log(data);
+            console.log(data.formattedAddress);
+            let getLat = data.position.getLat();
+            let getLng = data.position.getLng();
+            Lat = data.position.getLat();
+            Lng = data.position.getLng();
+            console.log('纬度：' + getLat + '   经度：' + getLng);
+        }
+    </script>
+    <!-- 为按钮添加点击事件 -->
+    <script>
+        $(function(){
+            // 获取位置按钮的设置
+            $(".getpos").on("click",function(){
+                var map = new AMap.Map('container', {
+                resizeEnable: true, //是否监控地图容器尺寸变化
+                zoom:11, //初始化地图层级
+                center: [Lng, Lat] //初始化地图中心点
+            });
+            });
+            //回到首页按钮的设置
+            $(".getback").on("click",function(){
+                $("html").load("./index.html");
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="out">
+        <form action="" method="POST">
+            <div id="container" class="map"></div>
+            <input type="button" value="获取位置" class="getpos">
+            <input type="button" value="回到首页" class="getback">
+        </form>
+    </div>
+<!-- 加载地图JSAPI脚本 -->
+<script>
+    var map = new AMap.Map('container', {
+        resizeEnable: true, //是否监控地图容器尺寸变化
+        zoom:11, //初始化地图层级
+        center: [116.397428, 39.90923] //初始化地图中心点
+    });
+</script>
+</body>
+</html>

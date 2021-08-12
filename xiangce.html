@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+    <meta name='author' content="苏云雷">
+    <meta name='apple-mobile-web-app-capable' content='yes'>
+    <meta name='apple-mobile-web-app-status-bar-style' content='black'>
+    <meta name='format-detection' content='telephone=no'>
+    <title>Document</title>
+    <style>
+        div{
+            width: 100%;
+        }
+        img{
+            width: 100%;
+        }
+        .bgbox{
+            width: 100%;
+            height: 100%;
+
+            cursor: pointer;
+        }
+        .bgbox>img{
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        .photo>table{
+            vertical-align:center;
+            margin: auto;
+            cursor: pointer;
+        }
+        .sheying{
+            width: 400px;
+            height: 280px;
+            margin: auto;
+            display: block;
+            padding: 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .photo>span{
+            text-align: center;
+            font-size: xxx-large;
+            font-weight: bolder;
+            font-style: normal;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .photo>p{
+            text-align: right;
+            font-style: oblique;
+            margin-right: 9%;
+        }
+    </style>
+    <script src="jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            $("#img1").mouseenter(function(){
+                $("#img1").css("opacity","0.9");
+            })
+            $("#img1").mouseleave(function(){
+                $("#img1").css("opacity","1.0");
+            })
+            $("#img2").mouseenter(function(){
+                $("#img2").css("opacity","0.9");
+            })
+            $("#img2").mouseleave(function(){
+                $("#img2").css("opacity","1.0");
+            })
+            $("#img3").mouseenter(function(){
+                $("#img3").css("opacity","0.9");
+            })
+            $("#img3").mouseleave(function(){
+                $("#img3").css("opacity","1.0");
+            })
+            $("#img4").mouseenter(function(){
+                $("#img4").css("opacity","0.9");
+            })
+            $("#img4").mouseleave(function(){
+                $("#img4").css("opacity","1.0");
+            })
+            $("#img5").mouseenter(function(){
+                $("#img5").css("opacity","0.9");
+            })
+            $("#img5").mouseleave(function(){
+                $("#img5").css("opacity","1.0");
+            })
+            $("#img6").mouseenter(function(){
+                $("#img6").css("opacity","0.9");
+            })
+            $("#img6").mouseleave(function(){
+                $("#img6").css("opacity","1.0");
+            })
+        })
+            
+    </script>
+</head>
+<body>
+    <div class="yishu">
+        <div class="bgbox"><img src="./picture/img-bg.jpg" alt=""></div>
+        <br>
+        <br>
+        <br>
+        <div class="photo" id="photo">
+            <table>
+                <tr><span>摄 影 篇</span></tr>
+                <tr>
+                    <th><img class="sheying" id="img1"src="./picture/img1.jpg" alt=""> "一生所获  不如一夜繁华"</th>
+                    <th><img class="sheying" id="img2"src="./picture/img2.jpg" alt=""> "断了情丝  别了红尘"</th>
+                    <th><img class="sheying" id="img3"src="./picture/img3.jpg" alt=""> "蓦然回首  灯火阑珊"</th>
+                </tr>
+                <tr>
+                    <th><img class="sheying" id="img4"src="./picture/img4.jpg" alt=""> "十指流砂  褪尽风华"</th>
+                    <th><img class="sheying" id="img5"src="./picture/img5.jpg" alt=""> "在遇见你的那一刻 浩瀚众星 皆降为尘"</th>
+                    <th><img class="sheying" id="img6"src="./picture/img6.jpg" alt=""> "远方和流浪"</th>
+                </tr>
+                <tr><p>All photographed by XXXXXM^</p></tr>
+            </table>
+        </div>
+        <div class="music"></div>
+	</div>
+</body>
+</html>

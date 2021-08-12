@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset=utf-8> 	
+        <title>Mr.Right的主页</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+        <meta name='author' content="苏云雷">
+        <meta name='apple-mobile-web-app-capable' content='yes'>
+        <meta name='apple-mobile-web-app-status-bar-style' content='black'>
+        <meta name='format-detection' content='telephone=no'>
+        <meta user-scalable=no>
+        <style type="text/css">
+            *{
+                margin:0px;
+                padding: 0px;
+            }
+            div{
+                width: 100%;
+            }
+            img{
+                width: 100%;
+            }
+			body
+			{
+                text-align: center;
+				background-color:white;
+			}
+            .header>h1{
+                line-height: 70px;
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 50px;
+                cursor: pointer;
+            }
+            .catalogue{
+                list-style: none;
+                width: 100%;
+                height: 50px;
+                background: white;
+                border-radius: 20px;
+                font-family: fantasy;
+                cursor: pointer;
+            }
+            .catalogue>li{
+                float: left;
+                text-align: center;
+                width: 25%;
+                height: 50px;
+                line-height: 50px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .xiangce{
+                color: grey;
+                cursor: pointer;
+            }
+            .rizhi{
+                color: grey;
+                cursor: pointer;
+            }
+            .lianxiwo{
+                color:grey;
+                cursor: pointer;
+            }
+            .rizhili{
+                list-style: none;
+                background-color: white;
+                width: 100%;
+                display: none;
+                cursor: pointer;
+            }
+            .zhongbu{
+                border-color: white;
+                overflow:inherit;
+            }
+            .zhongbu>img{
+                width: 100%;
+                height: 100%;
+                border-color: white;
+            }
+			.date
+			{
+			font-size:10px;
+			color:gray;
+			margin:1px 20px;
+			text-align:left;
+			}
+            .bottom{
+                position: relative;
+                bottom: 10px;
+            }			
+        </style>
+        <script src="jquery-3.4.1.js"></script>
+        <script>
+            $(function(){
+                $(".biaoti").mouseenter(function(){
+                    $(".biaoti").css("font-size","60px");
+                });
+                $(".biaoti").mouseleave(function(){
+                    $(".biaoti").css("font-size","50px");
+                });
+                $(".catalogue>li").mouseenter(function(){
+                    $(this).css("color","black");
+                    var $sub = $(this).children(".rizhili");
+                    $sub.stop();
+                    $sub.slideDown(500);
+                });
+                $(".catalogue>li").mouseleave(function(){
+                    $(this).css("color","grey");
+                    var $sub = $(this).children(".rizhili");
+                    $sub.stop();
+                    $sub.slideUp(500);
+                });
+                $(".shouye").on("click",function(){
+                    $(".zhongbu").load("./shouye.html");
+                });
+                $(".xiangce").on("click",function(){
+                    $(".zhongbu").load("./xiangce.html");
+                });
+                $(".lianxiwo").on("click",function(){
+                    $(".zhongbu").load("./lianxiwo.html");
+                });
+                $(".rizhi").on("click",function(){
+                    $(".zhongbu").load("./rizhi.html");
+                });
+            })
+        </script>
+	</head> 
+	<body>
+    <!--标题栏以及菜单栏-->
+	    <div class="header">
+        <h1 class="biaoti">Mr.Right</h1>
+            <ul class="catalogue">
+                <li class="shouye">首页</li>
+                <li class="xiangce">艺术篇章</li>
+                <li class="rizhi">生活琐事</li>
+                <li class="lianxiwo">联系我</li>
+            </ul>
+	    </div>
+	<!--中部图片栏-->
+	<div class="zhongbu">
+        <img src="fengji.jpg" alt="">
+		<div class="copyRight" >
+			<p>2020© Photographed by XXXXXM^</p>
+		</div>
+    </div>
+    <div class="bottom">
+        <br>
+        <br>
+        <br>
+
+————————————
+
+版权声明：本主页为博主「苏云雷 Mr.Right」的原创
+    </div>
+	</body>
+</html>
